@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Employee Task Management</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="container">
+    <div class="top-bar">
+
+        <div>
+
+            <h1>Employee Task Management</h1>
+
+            <p id="welcomeMessage"></p>
+
+        </div>
+
+        <button id="logoutBtn" class="logout-btn">
+            Logout
+        </button>
+
+    </div>
+
+    <div class="dashboard">
+
+        <div class="card" id="Ttask">
+
+            <h3>Total Tasks</h3>
+
+            <p id="totalTasks">0</p>
+
+        </div>
+
+        <div class="card" id="Pen">
+
+            <h3>Pending</h3>
+
+            <p id="pendingTasks">0</p>
+
+        </div>
+
+        <div class="card" id="Pro">
+
+            <h3>In Progress</h3>
+
+            <p id="progressTasks">0</p>
+
+        </div>
+
+        <div class="card" id="Com">
+
+            <h3>Completed</h3>
+
+            <p id="completedTasks">0</p>
+
+        </div>
+
+    </div>
+
+    <div class="form-container">
+
+        <h2 id="formTitle">Add Task</h2>
+
+        <form id="taskForm">
+
+            <input type="hidden" id="taskId">
+
+
+            <div class="form-group">
+
+                <label>Task Title</label>
+
+                <input
+                    type="text"
+                    id="title"
+                    placeholder="Enter task title"
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>Description</label>
+
+                <textarea
+                    id="description"
+                    placeholder="Enter task description"
+                ></textarea>
+
+            </div>
+
+
+            <div class="form-row">
+
+                <div class="form-group">
+
+                    <label>Priority</label>
+
+                    <select id="priority">
+
+                        <option value="">
+                            Select Priority
+                        </option>
+
+                        <option value="High">
+                            High
+                        </option>
+
+                        <option value="Medium">
+                            Medium
+                        </option>
+
+                        <option value="Low">
+                            Low
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>Status</label>
+
+                    <select id="status">
+
+                        <option value="">
+                            Select Status
+                        </option>
+
+                        <option value="Pending">
+                            Pending
+                        </option>
+
+                        <option value="In Progress">
+                            In Progress
+                        </option>
+
+                        <option value="Completed">
+                            Completed
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <div class="form-row">
+
+                <div class="form-group">
+
+                    <label>Due Date</label>
+
+                    <input
+                        type="date"
+                        id="dueDate"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>Assign Employee</label>
+
+                    <select id="assignedTo">
+
+                        <option value="">
+                            Select Employee
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <p id="message"></p>
+
+            <div class="form-buttons">
+
+                <button type="submit" id="submitBtn">
+                    Add Task
+                </button>
+
+                <button
+                    type="button"
+                    id="cancelBtn"
+                    class="cancel-btn"
+                    style="display: none;"
+                >
+                    Cancel
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+    <div class="filter-container">
+
+        <input
+            type="text"
+            id="search"
+            placeholder="Search by task title..."
+        >
+
+
+        <select id="statusFilter">
+
+            <option value="All"> All Status </option>
+            <option value="Pending"> Pending</option>
+
+            <option value="In Progress">  In Progress </option>
+
+            <option value="Completed"> Completed </option>
+
+        </select>
+
+        <select id="priorityFilter">
+
+            <option value="All"> All Priority</option>
+
+            <option value="High"> High </option>
+
+            <option value="Medium">
+                Medium
+            </option>
+
+            <option value="Low">
+                Low
+            </option>
+
+        </select>
+
+    </div>
+
+    <div class="table-container">
+
+        <h2>Task List</h2>
+
+        <table>
+
+            <thead>
+
+            <tr>
+
+                <th>ID</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Priority</th>
+                <th>Status</th>
+                <th>Due Date</th>
+                <th>Assigned To</th>
+                <th>Action</th>
+
+            </tr>
+
+            </thead>
+
+            <tbody id="taskTableBody"></tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
